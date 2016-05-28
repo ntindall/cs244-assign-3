@@ -43,7 +43,7 @@ for file_name in files:
 # hard coding keys for maintaining order in resulting csv file
 with open(RESULTS_FILE, 'w') as f:
 	f.write('Page, RTT, PLT: 10*mss & non-TFO (s), PLT: 10*mss & TFO (s), Improvement (10*mss, nonTFO vs TFO), PLT: 50*mss & TFO (s), PLT: 100*mss & TFO (s)\n')
-	for page_key in ['amazon']:#, 'nytimes', 'wsj', 'wikipedia']:
+	for page_key in ['amazon', 'nytimes', 'wsj', 'wikipedia']:
 		page_map = results_map[page_key]
 		for rtt_key in ['10', '50', '100']:
 			rtt_map = page_map[rtt_key]
