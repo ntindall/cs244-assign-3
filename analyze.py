@@ -42,7 +42,7 @@ for file_name in files:
 # should not be in results folder for future runs
 # hard coding keys for maintaining order in resulting csv file
 with open(RESULTS_FILE, 'w') as f:
-	f.write('Page, RTT, PLT: 10*mss & non-TFO (s), PLT: 10*mss & TFO (s), PLT: 50*mss & TFO (s), PLT: 100*mss & TFO (s), PLT: 500*mss & TFO (s), PLT: 1000*mss & TFO (s), PLT: 5000*mss & TFO (s), Improvement\n')
+	f.write('Page, RTT, PLT: 10*mss & non-TFO (s), PLT: 10*mss & TFO (s), Improvement (10*mss, nonTFO vs TFO), PLT: 50*mss & TFO (s), PLT: 100*mss & TFO (s)\n')
 	for page_key in ['amazon']:#, 'nytimes', 'wsj', 'wikipedia']:
 		page_map = results_map[page_key]
 		for rtt_key in ['10', '50', '100']:
@@ -54,6 +54,6 @@ with open(RESULTS_FILE, 'w') as f:
 			on_100 = np.mean(rtt_map['on']['100'])
 			improvement = ((off_10-on_10)/off_10)*100
 			# flush to file
-			array = [page_key, rtt_key, str(off_10), str(on_10), str(on_50), str(on_100), "%.1f"%improvement]
+			array = [page_key, rtt_key, str(off_10), str(on_10), "%.1f"%improvement, str(on_50), str(on_100)]
 			line = ','.join(map(str, array)) + '%\n'
 			f.write(line)
