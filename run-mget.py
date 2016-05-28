@@ -48,7 +48,7 @@ def main():
       CfgSetter.set_init_cr_wnd(DEFAULT_INIT_CWND)
 
       #Turn off TCP Fast Open
-      """print "Turn off TCP Fast Open"
+      print "Turn off TCP Fast Open"
       CfgSetter.turn_off_TFO()
 
       #simulate 3 download samples
@@ -57,7 +57,7 @@ def main():
         for site in ['amazon', 'nytimes', 'wsj', 'wikipedia']:
           print "simulate %s" % (site)
           download(site)
-          measure(site, half_rtt, 'off', DEFAULT_INIT_CWND)"""
+          measure(site, half_rtt, 'off', DEFAULT_INIT_CWND)
 
 if __name__ == '__main__':
   main()
