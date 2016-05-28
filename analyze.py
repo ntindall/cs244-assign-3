@@ -13,7 +13,6 @@ for file_name in files:
 		continue
 
 	name, rtt, mode, cwnd = file_name.split('_')
-	print name, rtt, mode, cwnd
 	# amazon, wsj, nytimes, wikipedia
 	if results_map.get(name) is None:
 		results_map[name] = dict()
