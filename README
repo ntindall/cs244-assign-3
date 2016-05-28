@@ -1,0 +1,20 @@
+CS244 - Spring 2015
+Reproducing Network Research
+Eric Theis & Nathan Tindall
+
+
+Reproduction Steps
+
+1. Set up a c4.large AWS EC2 instance with Ubuntu 14.04 as the OS.i
+
+2. Login to the instance and install git: 
+   sudo apt-get install git
+
+3. Clone the git repository into your home directory. It is important that this project runs in a directory named "cs244-assign-3" in your home directory.
+   cd ~; git clone https://github.com/ntindall/cs244-assign-3.git
+
+4. cd into the cs244-assign-3 directory and execute the run.py script with sudo privileges. This will take several (almost 3) hours to run, so please plan accordingly.
+   cd ~/cs244-assign-3; sudo python run.py
+
+Examine the results located in table_results.csv
+
