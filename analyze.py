@@ -54,6 +54,6 @@ with open(RESULTS_FILE, 'w') as f:
 			on_100 = np.mean(rtt_map['on']['100'])
 			improvement = ((off_10-on_10)/off_10)*100
 			# flush to file
-			array = [page_key, rtt_key, str(off_10), str(on_10), "%.1f"%improvement, str(on_50), str(on_100)]
-			line = ','.join(map(str, array)) + '%\n'
+			array = [page_key, rtt_key, str(off_10), str(on_10), "%.1f"%improvement+'%', str(on_50), str(on_100)]
+			line = ','.join(map(str, array)) + '\n'
 			f.write(line)
