@@ -41,9 +41,9 @@ class CfgSetter():
     return configure('sudo sysctl net.ipv4.tcp_fastopen=0')
 
   @staticmethod
-  def set_initcwnd(val=20):
+  def set_init_cr_wnd(val=20):
     print "init_cwnd: %s" % (str(val))
-    return configure('sudo ip route change default via 172.31.16.1 dev eth0 initcwnd %s' % (str(val)))
+    return configure('sudo ip route change default via 172.31.16.1 dev eth0 initcwnd %s initrwnd %s; ip route flush cache; sysctl -w net.ipv4.tcp_no_metrics_save=1' % (str(val), str(val)))
 
   @staticmethod
   def configure_half_rtt(val):

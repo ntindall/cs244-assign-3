@@ -43,7 +43,7 @@ for file_name in files:
 # hard coding keys for maintaining order in resulting csv file
 with open(RESULTS_FILE, 'w') as f:
 	f.write('Page, RTT, PLT: 10*mss & non-TFO (s), PLT: 10*mss & TFO (s), PLT: 50*mss & TFO (s), PLT: 100*mss & TFO (s), PLT: 500*mss & TFO (s), PLT: 1000*mss & TFO (s), PLT: 5000*mss & TFO (s), Improvement\n')
-	for page_key in ['amazon', 'nytimes', 'wsj', 'wikipedia']:
+	for page_key in ['amazon']:#, 'nytimes', 'wsj', 'wikipedia']:
 		page_map = results_map[page_key]
 		for rtt_key in ['10', '50', '100']:
 			rtt_map = page_map[rtt_key]
@@ -52,11 +52,8 @@ with open(RESULTS_FILE, 'w') as f:
 			on_10 = np.mean(rtt_map['on']['10'])
 			on_50 = np.mean(rtt_map['on']['50'])
 			on_100 = np.mean(rtt_map['on']['100'])
-			on_500 = np.mean(rtt_map['on']['500'])
-			on_1000 = np.mean(rtt_map['on']['1000'])
-			on_5000 = np.mean(rtt_map['on']['5000'])
 			improvement = ((off_10-on_10)/off_10)*100
 			# flush to file
-			array = [page_key, rtt_key, str(off_10), str(on_10), str(on_50), str(on_100), str(on_500), str(on_1000), str(on_5000), "%.1f"%improvement]
+			array = [page_key, rtt_key, str(off_10), str(on_10), str(on_50), str(on_100), "%.1f"%improvement]
 			line = ','.join(map(str, array)) + '%\n'
 			f.write(line)
