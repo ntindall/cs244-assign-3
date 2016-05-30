@@ -6,7 +6,7 @@ from CfgSetter import *
 DEFAULT_INIT_CWND = 10
 
 def download(site):
-  subprocess.Popen('find ~/scratch/%s -type f|sed -e "s;^$HOME/scratch;http://172.31.26.131:8000;g"|xargs -n1000 /usr/bin/time -f "%%E" -o timing ~/mget/src/mget --no-cache --num-threads=6  --delete-after -q' % (site), shell=True).communicate()
+  subprocess.Popen('find ~/scratch/%s -type f|sed -e "s;^$HOME/scratch;http://localhost:8000;g"|xargs -n1000 /usr/bin/time -f "%%E" -o timing ~/mget/src/mget --no-cache --num-threads=6  --delete-after -q' % (site), shell=True).communicate()
 
 def measure(site, half_rtt, fast_open, cwnd):
   subprocess.Popen('tail -n 1 timing >> ~/cs244-assign-3/results/%s_%s_%s_%s' % (site, half_rtt, fast_open, cwnd), shell=True).communicate()
